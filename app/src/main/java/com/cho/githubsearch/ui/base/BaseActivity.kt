@@ -15,7 +15,7 @@ abstract class BaseActivity: RxAppCompatActivity(){
 
     override fun setContentView(layoutResID: Int) {
         super.setContentView(layoutResID)
-//        setToolar()
+
     }
 
     fun setArrowToolbar(title : String =""){
@@ -30,27 +30,4 @@ abstract class BaseActivity: RxAppCompatActivity(){
         }
     }
 
-   /* fun setToolar(){
-        toolbar?.let {
-            setSupportActionBar(it)
-        }
-    }
-    fun setArrowToolbar(){
-        toolbar?.let {
-            it.setNavigationIcon(R.mipmap.btn_main_back)
-            it.setNavigationOnClickListener {
-                onBackPressed()
-            }
-        }
-    }
-    fun setArrowToolbar(title : String){
-        toolbar?.let {
-            it.title = title
-            it.setNavigationIcon(R.mipmap.btn_main_back)
-            setSupportActionBar(it)
-            it.setNavigationOnClickListener {
-                onBackPressed()
-            }
-        }
-    }*/
 }
