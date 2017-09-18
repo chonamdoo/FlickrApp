@@ -10,11 +10,11 @@ import android.support.v7.widget.StaggeredGridLayoutManager
 
 
 class InfiniteScrollListener(
-        private val func: () -> Unit,
+        private val func: ()->Unit,
         private val layoutManager: RecyclerView.LayoutManager) : RecyclerView.OnScrollListener() {
 
     private var visibleThreshold = 3
-    private var currentPage = 0
+//    private var currentPage = 0
     private var previousTotalItemCount = 0
     private var loading = true
     private val startingPageIndex = 0
@@ -44,7 +44,7 @@ class InfiniteScrollListener(
         }
 
         if (totalItemCount < previousTotalItemCount) {
-            this.currentPage = this.startingPageIndex
+//            this.currentPage = this.startingPageIndex
             this.previousTotalItemCount = totalItemCount
             if (totalItemCount == 0) {
                 loading = true
@@ -57,7 +57,7 @@ class InfiniteScrollListener(
         }
 
         if (!loading && lastVisibleItemPosition + visibleThreshold > totalItemCount) {
-            currentPage++
+//            currentPage++
             func()
             loading = true
         }

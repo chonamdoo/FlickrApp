@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.StaggeredGridLayoutManager
+import android.util.Log
 import android.view.View
 import com.cho.githubsearch.R
 import com.cho.githubsearch.data.source.remote.FlickrRepository
@@ -54,7 +55,8 @@ class GalleryFragment : BaseFragment(){
             layoutManager = staggerLayout
             adapter = galleryAdapter
             clearOnScrollListeners()
-            addOnScrollListener(InfiniteScrollListener({ reqPhoto() }, staggerLayout))
+            addOnScrollListener(InfiniteScrollListener({ reqPhoto()
+            }, staggerLayout))
         }
         reqPhoto()
 
