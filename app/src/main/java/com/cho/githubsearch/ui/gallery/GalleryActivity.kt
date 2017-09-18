@@ -14,6 +14,7 @@ class GalleryActivity : BaseActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_toolbar)
+        setArrowToolbar(getString(R.string.app_name))
         replaceFragmentToActivity(R.id.contentFrame,GalleryFragment.INSTANCE,GalleryFragment.TAG)
     }
 }

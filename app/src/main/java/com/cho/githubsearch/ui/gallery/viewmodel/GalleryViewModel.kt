@@ -1,6 +1,5 @@
 package com.cho.githubsearch.ui.gallery.viewmodel
 
-import android.util.Log
 import com.cho.githubsearch.data.model.Photo
 import com.cho.githubsearch.data.source.remote.FlickrRepository
 import com.cho.githubsearch.ui.base.BaseActivity
@@ -19,7 +18,6 @@ class GalleryViewModel(private val activity : BaseActivity ,private val reposito
     lateinit var addItem:(List<Photo>)->Unit
     private val PER_PAGE = 20
     fun fetchPhotoList(page : Int){
-        Log.v("DEBUG900","page : $page")
         repository.getPhotos(page,PER_PAGE)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

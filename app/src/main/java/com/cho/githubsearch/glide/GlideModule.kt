@@ -13,7 +13,7 @@ import com.bumptech.glide.module.AppGlideModule
 
 
 @GlideModule
-class InstaGlideModule : AppGlideModule(){
+class GlideModule : AppGlideModule(){
     override fun applyOptions(context: Context, builder: GlideBuilder) {
         builder.setDiskCache(ExternalCacheDiskCacheFactory(context, "cache", DISK_CACHE_SIZE))
                 .setMemoryCache(LruResourceCache(cacheSize))
