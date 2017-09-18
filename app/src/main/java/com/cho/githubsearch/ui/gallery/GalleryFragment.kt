@@ -2,6 +2,7 @@ package com.cho.githubsearch.ui.gallery
 
 import android.content.Context
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.View
 import com.cho.githubsearch.R
@@ -50,11 +51,11 @@ class GalleryFragment : BaseFragment(){
         recyclerview.apply {
             setHasFixedSize(true)
             val staggerLayout = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+//            val linearLayout = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
             layoutManager = staggerLayout
             adapter = galleryAdapter
             clearOnScrollListeners()
-            addOnScrollListener(InfiniteScrollListener({ reqPhoto()
-            }, staggerLayout))
+            addOnScrollListener(InfiniteScrollListener({ reqPhoto() }, staggerLayout))
         }
         reqPhoto()
 

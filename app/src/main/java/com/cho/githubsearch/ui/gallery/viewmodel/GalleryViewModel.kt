@@ -16,7 +16,7 @@ class GalleryViewModel(private val activity : BaseActivity ,private val reposito
     lateinit var showProgress:()->Unit
     lateinit var hideProgress:()->Unit
     lateinit var addItem:(List<Photo>)->Unit
-    private val PER_PAGE = 20
+    private val PER_PAGE = 50
     fun fetchPhotoList(page : Int){
         repository.getPhotos(page,PER_PAGE)
                 .subscribeOn(Schedulers.io())
