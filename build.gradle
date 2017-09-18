@@ -1,0 +1,51 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext{
+    rxAndroidVersion = "2.0.1"
+    rxJavaVersion = "2.1.2"
+    stethoVersion = "1.5.0"
+    okhttpVersion ="3.8.0"
+    retrofitVersion = "2.3.0"
+    appCompatVersion = "26.0.2"
+    constraintVersion ="1.0.2"
+    rxlifecycleVersion = "2.1.0"
+    glideVersion = "4.0.0"
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    flickrApiKey = properties.getProperty('flickrApiKey', "\"\"")
+}
+
+/*def checkFlickrApi() {
+    if (!project.hasProperty('flickr_api_key')) {
+        throw new IllegalArgumentException('Put Flickr Api Key from https://www.flickr.com/services/api/' +
+                ' Put into {root}/gradle.properties >> flickr_api_key=xxx')
+    }
+}
+
+checkFlickrApi()*/
+
+buildscript {
+    ext.kotlin_version = '1.1.4-3'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.0-beta6'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
