@@ -1,8 +1,8 @@
 package com.cho.githubsearch.ui.gallery
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.View
 import com.cho.githubsearch.R
@@ -10,7 +10,10 @@ import com.cho.githubsearch.data.source.remote.FlickrRepository
 import com.cho.githubsearch.extentions.isVisible
 import com.cho.githubsearch.ui.base.BaseFragment
 import com.cho.githubsearch.ui.gallery.viewmodel.GalleryViewModel
+import com.cho.githubsearch.ui.gallerydetail.GalleryDetailActivity
+import com.cho.githubsearch.ui.widget.adapter.AdapterConstants
 import com.cho.githubsearch.ui.widget.adapter.LoadMoreAdapter
+import com.cho.githubsearch.ui.widget.adapter.LoadingDelegateAdapter
 import com.cho.githubsearch.ui.widget.listener.InfiniteScrollListener
 import kotlinx.android.synthetic.main.fragment_gallery.*
 
@@ -27,7 +30,15 @@ class GalleryFragment : BaseFragment(){
     }
 
     private val galleryAdapter : LoadMoreAdapter by lazy {
-        LoadMoreAdapter()
+        LoadMoreAdapter().apply {
+            delegateAdapters.put(AdapterConstants.LOADING, LoadingDelegateAdapter())
+            delegateAdapters.put(AdapterConstants.ITEM, GalleryDelegateAdapter({photo->
+                activity.startActivity(Intent(activity, GalleryDetailActivity::class.java).apply {
+                    putExtra("img_path",photo.getImageUrl())
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                })
+            }))
+        }
     }
     override fun getLayoutResource(): Int = R.layout.fragment_gallery
     override fun onAttach(context: Context?) {

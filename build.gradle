@@ -9,6 +9,7 @@ ext{
     constraintVersion ="1.0.2"
     rxlifecycleVersion = "2.1.0"
     glideVersion = "4.0.0"
+    ImmersivedetailVersion ="1.0.2"
 
     Properties properties = new Properties()
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
@@ -29,6 +30,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0-beta6'
@@ -43,6 +45,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
     }
 }
 

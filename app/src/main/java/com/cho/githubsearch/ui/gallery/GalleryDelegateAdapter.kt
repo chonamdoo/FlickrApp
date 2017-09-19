@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.item_photo_view.view.*
  * Created by chonamdoo on 2017. 9. 17..
  */
 
-class GalleryDelegateAdapter : ViewTypeDelegateAdapter {
+class GalleryDelegateAdapter(private val onItemClick: (Photo)->Unit) : ViewTypeDelegateAdapter {
 
     override fun onCreateViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
         return ViewHolder(parent)
@@ -25,9 +25,13 @@ class GalleryDelegateAdapter : ViewTypeDelegateAdapter {
         holder.onBind(item as Photo)
     }
 
-    class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout.item_photo_view)){
+    inner class ViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(parent.inflate(R.layout
+            .item_photo_view)){
         fun onBind(photo: Photo){
             itemView.run {
+                setOnClickListener {
+                    onItemClick(photo)
+                }
                 img_photo.loadImg(photo.getImageUrl())
             }
         }
