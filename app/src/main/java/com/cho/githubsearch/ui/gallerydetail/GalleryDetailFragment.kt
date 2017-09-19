@@ -26,8 +26,8 @@ class GalleryDetailFragment : BaseFragment(){
         }
         LollipopCompatSingleton.fitStatusBarTranslucentPadding(toolbar, activity)
 
-        toolbarTitle.text = getString(R.string.app_name)
         toolbar?.let {
+            toolbarTitle.text = getString(R.string.app_name)
             activity.setSupportActionBar(it)
             activity.supportActionBar?.setDisplayShowTitleEnabled(false)
             activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
