@@ -20,15 +20,6 @@ abstract class BaseActivity: RxAppCompatActivity(){
     }
 
     fun setArrowToolbar(title : String =""){
-        /*toolbar?.let {
-            setSupportActionBar(it)
-            supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            supportActionBar?.setHomeButtonEnabled(true)
-            supportActionBar?.title = title
-            it.setNavigationOnClickListener {
-                onBackPressed()
-            }
-        }*/
         toolbar?.let {
             toolbarTitle.text = title
             setSupportActionBar(it)

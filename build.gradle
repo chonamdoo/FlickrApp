@@ -9,7 +9,8 @@ ext{
     constraintVersion ="1.0.2"
     rxlifecycleVersion = "2.1.0"
     glideVersion = "4.0.0"
-    ImmersivedetailVersion ="1.0.2"
+    immersivedetailVersion ="1.0.2"
+    loggingInterceptorVersrion = "2.0.2"
 
     Properties properties = new Properties()
     properties.load(project.rootProject.file('local.properties').newDataInputStream())
